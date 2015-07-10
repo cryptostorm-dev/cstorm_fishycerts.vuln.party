@@ -1,0 +1,197 @@
+This is Google's cache of https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=771170;mbox=yes;mboxmaint=yes. It is a snapshot of the page as it appeared on 3 Jun 2015 06:07:17 GMT.
+The current page could have changed in the meantime. Learn more
+Tip: To quickly find your search term on this page, press Ctrl+F or ⌘-F (Mac) and use the find bar.
+From unknown Wed Jun 03 06:07:16 2015
+X-Loop: owner@bugs.debian.org
+Subject: Bug#771170: git appears to no longer accept intermediate or end-entity certs for server verification
+Reply-To: Peter Palfrader <weasel@debian.org>, 771170@bugs.debian.org
+Resent-From: Peter Palfrader <weasel@debian.org>
+Resent-To: debian-bugs-dist@lists.debian.org
+Resent-CC: Gerrit Pape <pape@smarden.org>
+X-Loop: owner@bugs.debian.org
+Resent-Date: Thu, 27 Nov 2014 10:48:02 +0000
+Resent-Message-ID: <handler.771170.B.14170851139217@bugs.debian.org>
+Resent-Sender: owner@bugs.debian.org
+X-Debian-PR-Message: report 771170
+X-Debian-PR-Package: git
+X-Debian-PR-Keywords: 
+X-Debian-PR-Source: git, gnuit
+Received: via spool by submit@bugs.debian.org id=B.14170851139217
+          (code B); Thu, 27 Nov 2014 10:48:02 +0000
+Received: (at submit) by bugs.debian.org; 27 Nov 2014 10:45:13 +0000
+X-Spam-Checker-Version: SpamAssassin 3.3.2-bugs.debian.org_2005_01_02
+	(2011-06-06) on buxtehude.debian.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-10.9 required=4.0 tests=BAYES_00,DIGITS_LETTERS,
+	FROMDEVELOPER,FVGT_m_MULTI_ODD,HAS_PACKAGE,RCVD_IN_DNSWL_MED autolearn=ham
+	version=3.3.2-bugs.debian.org_2005_01_02
+X-Spam-Bayes: score:0.0000 Tokens: new, 94; hammy, 125; neutral, 29; spammy,
+	1. spammytokens:0.850-4--CERTIFICATE hammytokens:0.000-+--H*u:2014-03-12,
+	0.000-+--H*UA:2014-03-12, 0.000-+--H*u:1.5.23, 0.000-+--H*UA:1.5.23,
+	0.000-+--H*RU:86.59.21.37
+Received: from anguilla.debian.or.at ([86.59.21.37])
+	by buxtehude.debian.org with esmtps (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <weasel@debian.org>)
+	id 1XtwZV-0002OE-2I
+	for submit@bugs.debian.org; Thu, 27 Nov 2014 10:45:13 +0000
+Received: from defiant (localhost [127.0.0.1])
+	by anguilla.debian.or.at (Postfix) with ESMTP id 491A310E7C6;
+	Thu, 27 Nov 2014 11:45:08 +0100 (CET)
+Date: Thu, 27 Nov 2014 11:45:08 +0100
+From: Peter Palfrader <weasel@debian.org>
+To: Debian Bug Tracking System <submit@bugs.debian.org>
+Message-ID: <20141127104506.GA20112@defiant.palfrader.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Reportbug-Version: 6.6.0
+User-Agent: Mutt/1.5.23 (2014-03-12)
+Delivered-To: submit@bugs.debian.org
+
+Package: git
+Version: 1:2.1.3-1
+Severity: important
+
+Hi,
+
+In jessie, git no longer accepts end-entity or intermediate certificates
+for validating a https server certificate.  This worked in wheezy and is
+thus a significant regressesion.
+
+To reproduce, run:
+
+cat > w << EOF &&
+-----BEGIN CERTIFICATE-----
+MIIFejCCBGKgAwIBAgIQToSxUkJRuXHq6GShiZ6UmTANBgkqhkiG9w0BAQsFADBf
+MQswCQYDVQQGEwJGUjEOMAwGA1UECBMFUGFyaXMxDjAMBgNVBAcTBVBhcmlzMQ4w
+DAYDVQQKEwVHYW5kaTEgMB4GA1UEAxMXR2FuZGkgU3RhbmRhcmQgU1NMIENBIDIw
+HhcNMTQwNjIzMDAwMDAwWhcNMTYwNjIzMjM1OTU5WjBcMSEwHwYDVQQLExhEb21h
+aW4gQ29udHJvbCBWYWxpZGF0ZWQxGzAZBgNVBAsTEkdhbmRpIFN0YW5kYXJkIFNT
+TDEaMBgGA1UEAxMRd3d3LnBhbGZyYWRlci5vcmcwggGiMA0GCSqGSIb3DQEBAQUA
+A4IBjwAwggGKAoIBgQC8oPtzgAShwDQxpqeuA/mdiBd4mwA+vCsvrQD058zO7ttQ
+O+XKsUZ6Bv6BSitMLJiGrn45fcwkn1meXDgYf65EyFw6LJXT7EFs6axtqkvpV4fl
+VI7oWwG720l2fThHO/Z7iMNuorPxJcM39zzt5GtEHKMq1dP+YWn6OF0mi7cbGu95
+0PT2ueuO1hF0TAWCK5LuRf3vwKqbhBL0EMwcMqpG7h5WxcxdX3tRIlwG8OoDGw/u
+1v4WCyU1KY4qGmtWvuW5+jzHR5gkIgYJzhBcwpQPqzGrHm7c8cjBV5S6b8XvyGMQ
+0SrEe6ex8kip/Wuh8aAg5iXK3+EJIadAGvGoBxZcO6hiQNoUDRjw8qbq813sPpks
+kosGvQsxbi+0Rqp3Xw67JaKAXZdnbDY9Gj3XqMrISXeKvFTUKsSx1B6qu71asI8T
+bLDYN1O/n9L7c8jH/XpF9uhbKkv2oP6ld05LAInNhTyaJuPwEeZRpIB6yOnYU3b7
+URv3j6+4QbGEq27IMg0CAwEAAaOCAbMwggGvMB8GA1UdIwQYMBaAFLOQp9jJr07N
+YTyffK1df0H9aTDqMB0GA1UdDgQWBBSIvCKT3k4/gqibe5ZL4mI7ILI3vTAOBgNV
+HQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwSwYDVR0gBEQwQjA2BgsrBgEEAbIxAQICGjAnMCUGCCsGAQUFBwIB
+FhlodHRwczovL2Nwcy51c2VydHJ1c3QuY29tMAgGBmeBDAECATBBBgNVHR8EOjA4
+MDagNKAyhjBodHRwOi8vY3JsLnVzZXJ0cnVzdC5jb20vR2FuZGlTdGFuZGFyZFNT
+TENBMi5jcmwwcwYIKwYBBQUHAQEEZzBlMDwGCCsGAQUFBzAChjBodHRwOi8vY3J0
+LnVzZXJ0cnVzdC5jb20vR2FuZGlTdGFuZGFyZFNTTENBMi5jcnQwJQYIKwYBBQUH
+MAGGGWh0dHA6Ly9vY3NwLnVzZXJ0cnVzdC5jb20wKwYDVR0RBCQwIoIRd3d3LnBh
+bGZyYWRlci5vcmeCDXBhbGZyYWRlci5vcmcwDQYJKoZIhvcNAQELBQADggEBADyo
+L/7Y2yOjAjEknZfHv56xPKmHztkeP4N1X1fwW63sq8ZfPtXTyF7qZHzUjN3Bg+xB
+0n6+ojl9H013QUnGc9lPcwDkGCt63bcm+WoHn7dllmvkEifHckZHk4QQup4Ni5Jw
+HE05gWdJDIxVT3VnnD9UtLN+WpzksPnNZ81HfRQJp34yGkNTd52n5lo8zmygg/96
+kXY3rh7gASx9qm2F7fc92igqDW8CbGY4sn0kOVxb4CzpiNfMUcYOC7JZRcZQynlP
+8YzlHdn+y5s1ykBpEHujhGK306SB2Z1k444mLwIk3/RLGuLMOBEeh7DE3RHE/qJK
+T/fNb04E4tA6QTx905A=
+-----END CERTIFICATE-----
+EOF
+GIT_CURL_VERBOSE=1 git -c http.sslCAInfo=w clone https://www.palfrader.org/git/tools/weaselutils.git test
+
+This works on wheezy, but does not work with jessie.
+
+Cheers,
+weasel
+
+From unknown Wed Jun 03 06:07:16 2015
+X-Loop: owner@bugs.debian.org
+Subject: Bug#771170: curl and certificate verification in jessie
+Reply-To: Peter Palfrader <weasel@debian.org>, 771170@bugs.debian.org
+Resent-From: Peter Palfrader <weasel@debian.org>
+Resent-To: debian-bugs-dist@lists.debian.org
+Resent-CC: Gerrit Pape <pape@smarden.org>
+X-Loop: owner@bugs.debian.org
+Resent-Date: Sat, 29 Nov 2014 12:12:01 +0000
+Resent-Message-ID: <handler.771170.B771170.14172630258053@bugs.debian.org>
+Resent-Sender: owner@bugs.debian.org
+X-Debian-PR-Message: followup 771170
+X-Debian-PR-Package: git
+X-Debian-PR-Keywords: 
+X-Debian-PR-Source: git, gnuit
+Received: via spool by 771170-submit@bugs.debian.org id=B771170.14172630258053
+          (code B ref 771170); Sat, 29 Nov 2014 12:12:01 +0000
+Received: (at 771170) by bugs.debian.org; 29 Nov 2014 12:10:25 +0000
+X-Spam-Checker-Version: SpamAssassin 3.3.2-bugs.debian.org_2005_01_02
+	(2011-06-06) on buxtehude.debian.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-3.9 required=4.0 tests=BAYES_00,FROMDEVELOPER,
+	LONGLINEURL,RCVD_IN_DNSWL_MED autolearn=no
+	version=3.3.2-bugs.debian.org_2005_01_02
+X-Spam-Bayes: score:0.0000 Tokens: new, 15; hammy, 151; neutral, 73; spammy,
+	0. spammytokens: hammytokens:0.000-+--sk:buildd.,
+	0.000-+--UD:buildd.debian.org, 0.000-+--buildddebianorg,
+	0.000-+--buildd.debian.org, 0.000-+--mipsel
+Received: from anguilla.debian.or.at ([86.59.21.37])
+	by buxtehude.debian.org with esmtps (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <weasel@debian.org>)
+	id 1Xugr2-00025f-RU; Sat, 29 Nov 2014 12:10:25 +0000
+Received: by anguilla.debian.or.at (Postfix, from userid 1002)
+	id 5CD0A10E7E3; Sat, 29 Nov 2014 13:10:20 +0100 (CET)
+Date: Sat, 29 Nov 2014 13:10:20 +0100
+From: Peter Palfrader <weasel@debian.org>
+To: Alessandro Ghedini <ghedo@debian.org>,
+	Ian Jackson <ijackson@chiark.greenend.org.uk>,
+	pkg-gnutls-maint@lists.alioth.debian.org
+Cc: debian-devel@lists.debian.org
+Message-ID: <20141129121020.GY20561@anguilla.noreply.org>
+Mail-Followup-To: Alessandro Ghedini <ghedo@debian.org>,
+	Ian Jackson <ijackson@chiark.greenend.org.uk>,
+	pkg-gnutls-maint@lists.alioth.debian.org,
+	debian-devel@lists.debian.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.5.21 (2010-09-15)
+
+Hi,
+
+I recently started to move parts of debian.org's infrastructure to jessie.  I
+noticed a regression with software using curl to do https with certificate
+verification.
+
+On wheezy, this works:
+
+| weasel@mipsel-manda-01:~$ cat /etc/apt/apt.conf.d/puppet-https-buildd
+| Acquire::https::buildd.debian.org::CaInfo "/etc/ssl/servicecerts/buildd.debian.org.crt";
+| weasel@mipsel-manda-01:~$ tail -n1 /etc/apt/sources.list.d/buildd.debian.org.list
+| deb     https://buildd.debian.org/apt/  wheezy  main
+
+I.e., I can use a local copy of the expected end-entity certificate to
+authenticate a https server.
+
+On jessie this no longer works:
+
+} Err https://buildd.debian.org wheezy/main mipsel Packages
+}   server certificate verification failed. CAfile: /etc/ssl/servicecerts/buildd.debian.org.crt CRLfile: none
+
+Instead, I have to trust the corresponding root certificate or an
+ intermediate (#771404).
+
+I noticed a similar issue with git, where using the EE-certificate or an
+intermediate as http.sslCAInfo fails to authenticate the server (#771170).
+
+
+Is this intentional, or is that a bug in either gnutls, curl, or the software
+using these libraries?
+
+
+I suspect that other users of curl/gnutls might be affected as well, and that
+saying "I only trust this exact certificate" is not a crazy and rare use-case.
+Thus, I'd like to learn more here and ideally have this resolved for jessie.
+
+Cheers,
+-- 
+                           |  .''`.       ** Debian **
+      Peter Palfrader      | : :' :      The  universal
+ http://www.palfrader.org/ | `. `'      Operating System
+                           |   `-    http://www.debian.org/
