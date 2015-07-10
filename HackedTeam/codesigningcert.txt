@@ -1,0 +1,79 @@
+Organizational Unit	HT SRL
+Common Name	HT SRL
+UID	8356033
+Type	Domain Validation
+Full Subject	/OU=HT SRL/CN=HT SRL/UID=8356033
+Issuer
+Country	US 
+Organization	Symantec Corporation
+Organizational Unit	Windows Phone Enterprise Applications
+Common Name	Symantec Enterprise Mobile CA for Microsoft
+Validity
+Valid From	 - Mon, 30 Mar 2015 08:05:59 +0000
+Valid Until	 - Tue, 31 May 2016 01:57:23 +0000
+CRL	 - Not on CRL: http://crl.geotrust.com/crls/msftentmobileca.crl
+Last update: Jul 9 15:28:55 2015 GMT 
+Next update: Jul 19 15:28:55 2015 GMT 
+OCSP	No OCSP URI found in certificate
+Hostname Validation	Not applicable, this seems to be a CA signing certificate.
+Details
+Purposes	any ocsphelper
+Purposes CA	any
+Serial	C3:B
+Key Size / Type	2048 bits rsa
+Signature Algorithm	sha256WithRSAEncryption
+Extensions	
+Click to Open/Close
+authorityKeyIdentifier
+keyid:5C:2A:64:1B:59:12:0E:EA:70:80:21:14:38:52:AD:08:C9:E9:96:80
+keyUsage
+Digital Signature
+extendedKeyUsage
+Code Signing, 2.16.840.1.113733.1.8.52.1
+crlDistributionPoints
+Full Name:
+  URI:http://crl.geotrust.com/crls/msftentmobileca.crl
+basicConstraints
+CA:FALSE
+subjectKeyIdentifier
+7F:50:84:1D:5E:85:6A:49:A7:38:69:75:82:0D:52:C7:C0:E8:26:DE
+
+Certificate PEM	
+Click to Open/Close
+-----BEGIN CERTIFICATE-----
+MIIEETCCAvmgAwIBAgICDDswDQYJKoZIhvcNAQELBQAwgZIxCzAJBgNVBAYTAlVT
+MR0wGwYDVQQKExRTeW1hbnRlYyBDb3Jwb3JhdGlvbjEuMCwGA1UECxMlV2luZG93
+cyBQaG9uZSBFbnRlcnByaXNlIEFwcGxpY2F0aW9uczE0MDIGA1UEAxMrU3ltYW50
+ZWMgRW50ZXJwcmlzZSBNb2JpbGUgQ0EgZm9yIE1pY3Jvc29mdDAeFw0xNTAzMzAw
+ODA1NTlaFw0xNjA1MzEwMTU3MjNaMDsxDzANBgNVBAsTBkhUIFNSTDEPMA0GA1UE
+AxMGSFQgU1JMMRcwFQYKCZImiZPyLGQBARMHODM1NjAzMzCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJ1dskw3bA7GPlaXbNUIa4aOuhX4WqOBkyZf4mMg
+ZZY41npTEvRvBFikbJxTSNTOMD+zvVZgwrTjs2YOJbko08LFLCVsHKrsUYOFEToL
+ItxLfGiM05yW8HgwogDs6tIGon+lNS/2y5Jmh3j16D+j+D4R/msJB5yPB641N3zS
+u7eby08pdViv41lo/zk8HXW2UiptGApTx4YBjbd79duziqTCbSCW6nPx96SrMxnh
+6/sq3a7JY/OmMSmfVRHVfqqg1ZAGyjOlB21F6FLVbC3HR1z9UJuxAOm2Zs/aYsnl
+dDqQ+UpUKrB2kjszqJ3EK9WH4nvj+C7e4y7WUquWj84PnW8CAwEAAaOBxjCBwzAf
+BgNVHSMEGDAWgBRcKmQbWRIO6nCAIRQ4Uq0IyemWgDAOBgNVHQ8BAf8EBAMCB4Aw
+IAYDVR0lBBkwFwYIKwYBBQUHAwMGC2CGSAGG+EUBCDQBMEEGA1UdHwQ6MDgwNqA0
+oDKGMGh0dHA6Ly9jcmwuZ2VvdHJ1c3QuY29tL2NybHMvbXNmdGVudG1vYmlsZWNh
+LmNybDAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBR/UIQdXoVqSac4aXWCDVLHwOgm
+3jANBgkqhkiG9w0BAQsFAAOCAQEAgU6ot3t/FxeZ2S7Ubcm8fPBaW12xD2pe1A9i
+iZKRLxjR4et4VpOxPwK57AnlnBisuHpT1sP+rRl+RpRNcRWID6ChQMapZcUAvodI
+NU8r4S9U02JjAei/0zmXRS9OVUDCxXDlkXp2qqzJF12EE7rmT9h/GHsDGZs2nAyI
+mktwDrRtRcEc/cFCcjrGKzJlljU/CN4juGNmZH8fCRvxGRyLz69f6bjPtqlkTFp3
+irUt1yLCVj5+3qYhEX1fLYS+6TKAXsBUbBmoVZvGNCsK0mw7P0dOk/IwE7a/nXe8
+qSJ7D6kHFz7f1iMk+arQ1o8XO2fhe7irU0QBtNeh4XmUuZqMdw==
+-----END CERTIFICATE-----
+
+Public Key PEM	
+Click to Open/Close
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnV2yTDdsDsY+Vpds1Qhr
+ho66Ffhao4GTJl/iYyBlljjWelMS9G8EWKRsnFNI1M4wP7O9VmDCtOOzZg4luSjT
+wsUsJWwcquxRg4UROgsi3Et8aIzTnJbweDCiAOzq0gaif6U1L/bLkmaHePXoP6P4
+PhH+awkHnI8HrjU3fNK7t5vLTyl1WK/jWWj/OTwddbZSKm0YClPHhgGNt3v127OK
+pMJtIJbqc/H3pKszGeHr+yrdrslj86YxKZ9VEdV+qqDVkAbKM6UHbUXoUtVsLcdH
+XP1Qm7EA6bZmz9piyeV0OpD5SlQqsHaSOzOoncQr1Yfie+P4Lt7jLtZSq5aPzg+d
+bwIDAQAB
+-----END PUBLIC KEY-----
+SPKI Hash	IGPULKateZZI0JUOCRgQ0hmJY7lgCKsBzPI8VSHyNsQ=
